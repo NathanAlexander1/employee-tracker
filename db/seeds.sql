@@ -19,7 +19,7 @@ VALUES
     ("Rachel", "Lally", 2, NULL),
     ("Lisa", "Dixon", 3, NULL),
     ("Liam", "Neeson", 4, 1),
-    ("Lord", "Voldemort", 5, 5),
-    ("Harry", "Potter", 6, 1),
+    ("Lord", "Voldemort", 5, 2),
+    ("Harry", "Potter", 6, 3),
     ("Mark", "Markson", 6, 1);
 
