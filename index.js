@@ -4,20 +4,6 @@ require("console.table");
 const db = require("./db/connection");
 //on init
 //create variable for prompt list: view dep, view roles, view employees, add dep, add role, add employ, update emplyee role
-
-// const getDepartments = () => {
-//   db.query("SELECT departments.name FROM departments", function (err, results) {
-//     console.log(results);
-//     let choicesARR = results.map((department) => {
-//       return department.name;
-//     });
-//     console.log(choicesARR);
-//     return choicesARR;
-//   });
-// };
-
-// const depts = getDepartments()
-// console.log("depts:", depts)
 const initialPrompt = [
   {
     type: "list",
@@ -250,6 +236,7 @@ function initPrompt() {
           "INSERT INTO departments SET ?",
           { name: responses.new_department },
           function (err, results) {
+            console.log("\n");
             console.table(results);
           }
         );
@@ -263,6 +250,7 @@ function initPrompt() {
       db.query(
         "SELECT roles.id, roles.title, roles.salary, departments.name FROM roles JOIN departments ON roles.department_id=departments.id",
         function (err, results) {
+          console.log("\n");
           console.table(results);
         }
       );
@@ -282,6 +270,7 @@ function initPrompt() {
       LEFT JOIN employees manager
       ON manager.id = employees.manager_id`,
         function (err, results) {
+   
           console.table(results);
         }
       );
@@ -296,7 +285,7 @@ function initPrompt() {
       updateEmployeeRole();
       // console.log("I want to update an employee");
     } else {
-      console.log("I want to quit the program");
+      // console.log("I want to quit the program");
     }
   });
 }
